@@ -106,6 +106,73 @@
 
     .dropdown-divider { height: 1px; background: var(--border); margin: 0.4rem 0.4rem; }
 
+    .dropdown-wide {
+      min-width: 480px;
+      display: flex; gap: 0; padding: 0.6rem;
+      left: 50%; transform: translateX(-50%) translateY(-6px);
+    }
+    .nav-dropdown:hover .dropdown-wide {
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-col { flex: 1; display: flex; flex-direction: column; }
+    .dropdown-col-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--gold); font-weight: 700; padding: 0.3rem 0.8rem 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .dropdown-sep { width: 1px; background: var(--border); margin: 0.4rem 0.2rem; flex-shrink: 0; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+
+    .exp-person-header {
+      display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem;
+    }
+    .exp-avatar {
+      width: 64px; height: 64px; border-radius: 14px;
+      object-fit: cover; border: 2px solid var(--border); flex-shrink: 0;
+    }
+    .exp-person-name { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; }
+    .exp-person-role { font-size: 0.75rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .exp-block { margin-bottom: 2rem; }
+    .exp-block-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--gold); font-weight: 700; margin-bottom: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .exp-block-label::after { content:''; flex: 1; height: 1px; background: var(--border); }
+
+    .exp-item {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.2rem 1.4rem;
+      margin-bottom: 0.75rem; position: relative;
+      transition: border-color 0.2s;
+    }
+    .exp-item:hover { border-color: var(--gold); }
+
+    .exp-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem; gap: 1rem; }
+    .exp-item-title { font-size: 0.92rem; font-weight: 600; color: var(--white); line-height: 1.3; }
+    .exp-item-date {
+      font-size: 0.72rem; color: var(--silver); white-space: nowrap;
+      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15);
+      padding: 0.2rem 0.6rem; border-radius: 50px; flex-shrink: 0;
+    }
+    .exp-item-org { font-size: 0.78rem; color: var(--gold); font-weight: 600; margin-bottom: 0.5rem; }
+    .exp-item-desc { font-size: 0.82rem; color: var(--silver); line-height: 1.65; }
+
+    .exp-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .exp-skill {
+      background: rgba(26,107,74,0.15); border: 1px solid rgba(26,107,74,0.3);
+      color: #6EE7B7; font-size: 0.7rem; font-weight: 600;
+      padding: 0.18rem 0.6rem; border-radius: 50px;
+    }
+
+    @media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr; } .dropdown-wide { min-width: 280px; flex-direction: column; } .dropdown-sep { width: auto; height: 1px; margin: 0.2rem 0.4rem; } }
+
     .nav-links a { color: var(--silver); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
 
@@ -585,98 +652,81 @@
 
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle">
-        Projects
+        Projects & Expertise
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <div class="dropdown-menu">
-        <a href="#work" class="dropdown-item">
-          <div class="dropdown-icon">🖥️</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">SmartVend System</span>
-            <span class="dropdown-item-desc">Real-time vending inventory dashboard</span>
-          </div>
-        </a>
-        <a href="#work" class="dropdown-item">
-          <div class="dropdown-icon">📊</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Predictive Analytics</span>
-            <span class="dropdown-item-desc">Customer demand forecasting model</span>
-          </div>
-        </a>
-        <a href="#work" class="dropdown-item">
-          <div class="dropdown-icon">🔒</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">HumanCentricAttackPath</span>
-            <span class="dropdown-item-desc">Cybersecurity research tool</span>
-          </div>
-        </a>
-        <a href="#work" class="dropdown-item">
-          <div class="dropdown-icon">🤖</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Workflow Automation</span>
-            <span class="dropdown-item-desc">Small business process automation</span>
-          </div>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#work" class="dropdown-item">
-          <div class="dropdown-icon" style="background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.25);">✦</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label" style="color:var(--gold);">View all projects</span>
-            <span class="dropdown-item-desc">See the full portfolio</span>
-          </div>
-        </a>
-      </div>
-    </li>
-
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle">
-        Expertise
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="dropdown-menu">
-        <a href="#services" class="dropdown-item">
-          <div class="dropdown-icon">🎨</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Web Design</span>
-            <span class="dropdown-item-desc">Custom layouts, UX, brand identity</span>
-          </div>
-        </a>
-        <a href="#services" class="dropdown-item">
-          <div class="dropdown-icon">⚡</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Web Development</span>
-            <span class="dropdown-item-desc">React, Node.js, full-stack builds</span>
-          </div>
-        </a>
-        <a href="#services" class="dropdown-item">
-          <div class="dropdown-icon">📈</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Data & Analytics</span>
-            <span class="dropdown-item-desc">Dashboards, forecasting, reporting</span>
-          </div>
-        </a>
-        <a href="#services" class="dropdown-item">
-          <div class="dropdown-icon">🔐</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Security</span>
-            <span class="dropdown-item-desc">Risk assessments, secure architecture</span>
-          </div>
-        </a>
-        <a href="#services" class="dropdown-item">
-          <div class="dropdown-icon">🤖</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label">Automation</span>
-            <span class="dropdown-item-desc">Workflow systems, process design</span>
-          </div>
-        </a>
-        <div class="dropdown-divider"></div>
-        <a href="#maintenance" class="dropdown-item">
-          <div class="dropdown-icon" style="background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.25);">🔧</div>
-          <div class="dropdown-item-text">
-            <span class="dropdown-item-label" style="color:var(--gold);">Monthly maintenance</span>
-            <span class="dropdown-item-desc">Ongoing care plans</span>
-          </div>
-        </a>
+      <div class="dropdown-menu dropdown-wide">
+        <div class="dropdown-col">
+          <div class="dropdown-col-label">Projects</div>
+          <a href="#experience" class="dropdown-item">
+            <div class="dropdown-icon">🖥️</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">SmartVend System</span>
+              <span class="dropdown-item-desc">Real-time vending inventory dashboard</span>
+            </div>
+          </a>
+          <a href="#experience" class="dropdown-item">
+            <div class="dropdown-icon">📊</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Predictive Analytics</span>
+              <span class="dropdown-item-desc">Customer demand forecasting model</span>
+            </div>
+          </a>
+          <a href="#experience" class="dropdown-item">
+            <div class="dropdown-icon">🔒</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">HumanCentricAttackPath</span>
+              <span class="dropdown-item-desc">Cybersecurity research tool</span>
+            </div>
+          </a>
+          <a href="#experience" class="dropdown-item">
+            <div class="dropdown-icon">🤖</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Workflow Automation</span>
+              <span class="dropdown-item-desc">Small business process automation</span>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown-sep"></div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-label">Expertise</div>
+          <a href="#services" class="dropdown-item">
+            <div class="dropdown-icon">🎨</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Web Design</span>
+              <span class="dropdown-item-desc">Custom layouts, UX, branding</span>
+            </div>
+          </a>
+          <a href="#services" class="dropdown-item">
+            <div class="dropdown-icon">⚡</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Web Development</span>
+              <span class="dropdown-item-desc">React, Node.js, full-stack builds</span>
+            </div>
+          </a>
+          <a href="#services" class="dropdown-item">
+            <div class="dropdown-icon">📈</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Data & Analytics</span>
+              <span class="dropdown-item-desc">Dashboards, forecasting, reporting</span>
+            </div>
+          </a>
+          <a href="#services" class="dropdown-item">
+            <div class="dropdown-icon">🔐</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label">Security</span>
+              <span class="dropdown-item-desc">Risk assessments, secure code</span>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#experience" class="dropdown-item">
+            <div class="dropdown-icon" style="background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.25);">✦</div>
+            <div class="dropdown-item-text">
+              <span class="dropdown-item-label" style="color:var(--gold);">Full experience</span>
+              <span class="dropdown-item-desc">View our backgrounds in detail</span>
+            </div>
+          </a>
+        </div>
       </div>
     </li>
 
@@ -968,6 +1018,252 @@
           <span class="chip">Google Sheets</span>
           <span class="chip">Automation</span>
           <span class="chip">Documentation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Our experience,<br/>laid out in full.</h2>
+    <p class="section-sub">Two students. Real work. Here's everything we've done — from research labs and government offices to vending machines and coding clubs.</p>
+  </div>
+
+  <div class="exp-grid">
+
+    <!-- JADEN -->
+    <div>
+      <div class="exp-person-header">
+        <img src="jaden.png" alt="Jaden M. Coffie" class="exp-avatar"/>
+        <div>
+          <div class="exp-person-name">Jaden M. Coffie</div>
+          <div class="exp-person-role">Communications & Technology · UMBC</div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Front of House Team Member</div>
+            <div class="exp-item-date">May 2023 – Present</div>
+          </div>
+          <div class="exp-item-org">Chick-fil-A · Bowie, MD</div>
+          <div class="exp-item-desc">Delivered exceptional customer service in a high-volume, fast-paced environment. Managed orders, resolved concerns, maintained operations, and supported team coordination — building strong communication and customer-facing skills.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Government Operations Intern</div>
+            <div class="exp-item-date">July – Aug 2023</div>
+          </div>
+          <div class="exp-item-org">Prince George's County Government · Office of the County Executive</div>
+          <div class="exp-item-desc">Compiled and organized Use & Occupancy Certificates into Excel for PG County Public Schools. Attended strategy meetings with the Senior Advisor to the Deputy Chief Administrative Officer. Contributed to DPIE tasks and participated in Lunch & Learn sessions on government services.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Excel</span>
+            <span class="exp-skill">Government Ops</span>
+            <span class="exp-skill">Data Organization</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Next Generation Scholars Intern</div>
+            <div class="exp-item-date">July 2021</div>
+          </div>
+          <div class="exp-item-org">Prince George's County Government</div>
+          <div class="exp-item-desc">Completed career readiness training focused on communication and team building. Gained foundational insights into public service and government operations.</div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Projects</div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Predictive Business Analytics — Customer Demand Forecasting</div>
+            <div class="exp-item-date">Feb 2026</div>
+          </div>
+          <div class="exp-item-desc">Built a forecasting model using historical sales data. Used Python and Excel to analyze trends, predict future demand, and create visual reports to assist management with inventory planning and budgeting.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Python</span>
+            <span class="exp-skill">Excel</span>
+            <span class="exp-skill">Data Visualization</span>
+            <span class="exp-skill">Forecasting</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Cybersecurity Risk Assessment</div>
+            <div class="exp-item-date">Nov 2025</div>
+          </div>
+          <div class="exp-item-desc">Evaluated common cybersecurity risks facing small businesses. Conducted vulnerability assessments, recommended security best practices, and developed a security policy including password protocols and data protection strategies.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Risk Assessment</span>
+            <span class="exp-skill">Security Policy</span>
+            <span class="exp-skill">Vulnerability Analysis</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Small Business Workflow Automation</div>
+            <div class="exp-item-date">Sep 2025</div>
+          </div>
+          <div class="exp-item-desc">Designed an automated workflow to streamline order tracking and customer communication. Used Google Sheets and email automation to reduce manual data entry — improving efficiency and cutting order processing time by 30%.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Google Sheets</span>
+            <span class="exp-skill">Automation</span>
+            <span class="exp-skill">Process Design</span>
+            <span class="exp-skill">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Campus Involvement</div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Treasurer — Black Student Union</div>
+            <div class="exp-item-date">May 2025 – Present</div>
+          </div>
+          <div class="exp-item-org">University of Maryland, Baltimore County</div>
+          <div class="exp-item-desc">Manages the organization's budget and oversees all financial transactions including funding requests, reimbursements, and event budgeting. Prepares financial reports and coordinates with UMBC's SGA to ensure compliance with university financial policies.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Member — Kappa Alpha Psi Fraternity, Inc.</div>
+            <div class="exp-item-date">Apr 2025 – Present</div>
+          </div>
+          <div class="exp-item-org">Theta Chi Chapter · UMBC</div>
+          <div class="exp-item-desc">Participates in community service, fundraising, and mentorship programs. Collaborates with chapter members to organize on-campus activities and develops leadership and communication skills through active involvement.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMI -->
+    <div>
+      <div class="exp-person-header">
+        <img src="temi.png" alt="Temi Owojuyigbe" class="exp-avatar"/>
+        <div>
+          <div class="exp-person-name">Temi Owojuyigbe</div>
+          <div class="exp-person-role">Computer Science · UMBC</div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Cybersecurity Undergraduate Researcher</div>
+            <div class="exp-item-date">June – Aug 2025</div>
+          </div>
+          <div class="exp-item-org">North Dakota State University Research Program · Fargo, ND</div>
+          <div class="exp-item-desc">Co-authored a research paper on human-centric simulation of social engineering attack paths, modeling phishing, tailgating, and network pivot attack chains using a depth-first search engine. Developed HumanCentricAttackPath — a C#/.NET and React prototype. Designed system architecture for integration with SONARR's blackboard system for collaborative security analysis.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">C# / .NET</span>
+            <span class="exp-skill">React</span>
+            <span class="exp-skill">Research</span>
+            <span class="exp-skill">Cybersecurity</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">System Administrator Intern</div>
+            <div class="exp-item-date">June – Aug 2024</div>
+          </div>
+          <div class="exp-item-org">ProActive Design + Building Systems Inc · Baltimore, MD</div>
+          <div class="exp-item-desc">Assisted with system updates, server maintenance, and network troubleshooting to maintain operational uptime for office infrastructure. Supported internal IT operations and gained hands-on experience with small business network administration.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Network Admin</span>
+            <span class="exp-skill">Server Maintenance</span>
+            <span class="exp-skill">IT Support</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Coding Tutor & Youth Club Founder</div>
+            <div class="exp-item-date">July 2023 – Present</div>
+          </div>
+          <div class="exp-item-org">Jesus House of Baltimore · Baltimore, MD</div>
+          <div class="exp-item-desc">Founded and leads a youth coding club teaching fundamentals of Python, Java, and HTML through project-based lessons — giving the next generation their first experience with software development.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Python</span>
+            <span class="exp-skill">Java</span>
+            <span class="exp-skill">HTML</span>
+            <span class="exp-skill">Teaching</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Projects</div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">SmartVend Inventory Management System</div>
+            <div class="exp-item-date">In Progress</div>
+          </div>
+          <div class="exp-item-desc">Developing a platform that tracks vending machine inventory using transaction data from campus card payment logs. Built backend logic to infer real-time product inventory levels and auto-flag items needing restock. Designed a web dashboard for staff to monitor inventory, analyze demand trends, and generate restock reports — all without modifying existing hardware.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">Node.js</span>
+            <span class="exp-skill">SQL</span>
+            <span class="exp-skill">Express</span>
+            <span class="exp-skill">React</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">HumanCentricAttackPath</div>
+            <div class="exp-item-date">2025</div>
+          </div>
+          <div class="exp-item-desc">A security analysis tool that visualizes potential social engineering attack paths within an organization. Implemented backend APIs and frontend visualization components to model attack chains and threat relationships. Designed for integration with larger cybersecurity research platforms.</div>
+          <div class="exp-skills">
+            <span class="exp-skill">React</span>
+            <span class="exp-skill">C# / .NET</span>
+            <span class="exp-skill">API Design</span>
+            <span class="exp-skill">Security Research</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Technical Skills</div>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Languages</div>
+          </div>
+          <div class="exp-skills">
+            <span class="exp-skill">Python</span><span class="exp-skill">C++</span><span class="exp-skill">C#</span><span class="exp-skill">Java</span><span class="exp-skill">Go</span>
+          </div>
+          <div class="exp-item-title" style="margin-top:1rem;">Technologies</div>
+          <div class="exp-skills" style="margin-top:0.5rem;">
+            <span class="exp-skill">Docker</span><span class="exp-skill">AWS</span><span class="exp-skill">React</span><span class="exp-skill">Node.js</span><span class="exp-skill">Flask</span><span class="exp-skill">MongoDB</span><span class="exp-skill">PostgreSQL</span><span class="exp-skill">Kubernetes</span><span class="exp-skill">Kafka</span><span class="exp-skill">Spring Boot</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-block-label">Campus Involvement</div>
+        <div class="exp-item">
+          <div class="exp-item-header">
+            <div class="exp-item-title">Member — Kappa Alpha Psi Fraternity, Inc.</div>
+            <div class="exp-item-date">Fall 2025 – Present</div>
+          </div>
+          <div class="exp-item-org">Theta Chi Chapter · UMBC</div>
+          <div class="exp-item-desc">Active member participating in community service initiatives, fundraising events, and mentorship programs across campus.</div>
         </div>
       </div>
     </div>
