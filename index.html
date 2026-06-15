@@ -33,6 +33,7 @@
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
+      max-width: 100vw;
     }
 
     h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); }
@@ -672,6 +673,9 @@
       margin-top: 1rem;
     }
 
+    /* ── ADAM EXP GRID ── */
+    .adam-exp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+
     /* ── TABLET (max 900px) ── */
     @media (max-width: 900px) {
       nav { padding: 1rem 5%; }
@@ -709,7 +713,7 @@
       .maint-grid { grid-template-columns: 1fr; }
 
       .exp-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .exp-grid > div[style*="grid-column"] { grid-column: auto; }
+      .adam-exp-grid { grid-template-columns: 1fr; gap: 1rem; }
 
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -746,11 +750,13 @@
       .pricing-card { padding: 1.5rem; }
       .plan-price { font-size: 2rem; }
 
-      .stat-item { min-width: 120px; }
+      .stats-bar { padding: 1.25rem 4%; }
+      .stat-num { font-size: 1.4rem; }
       .maint-note { flex-direction: column; gap: 0.75rem; }
 
-      .exp-grid > div[style*="grid-column"] { display: block; }
       .exp-item { padding: 0.9rem 1rem; }
+      .exp-item-header { flex-direction: column; gap: 0.4rem; }
+      .exp-item-date { align-self: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1519,7 +1525,7 @@
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+      <div class="adam-exp-grid">
 
         <div class="exp-block">
           <div class="exp-block-label">Projects & Research</div>
